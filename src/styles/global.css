@@ -77,6 +77,18 @@ h1 {
 	font-size: var(--f-u8);
 }
 
+h2 {
+	font-size: var(--f-u5);
+}
+
+h3 {
+	font-size: var(--f-u3);
+}
+
+h4 {
+	font-size: var(--f-u1);
+}
+
 .button {
 	display: inline-block;
 	border: 3px solid currentColor;
