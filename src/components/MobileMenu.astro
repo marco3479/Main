@@ -1,0 +1,22 @@
+---
+import ContactIcon from "./ContactIcon.astro";
+import HomeIcon from "./HomeIcon.astro";
+import InterestsIcon from "./InterestsIcon.astro";
+import ProjectsIcon from "./ProjectsIcon.astro";
+import SkillsIcon from "./SkillsIcon.astro";
+import ThemeMode from "./ThemeMode.astro";
+
+---
+
+<div id='mobileMenu' class='flex flex-nowrap mb-4 md:hidden overflow-hidden justify-around'>
+    <SkillsIcon/>
+    <ProjectsIcon/>
+    <InterestsIcon/>
+    <ContactIcon/>
+    <ThemeMode/>
+</div>
+<style>
+    #mobileMenu .icon {
+        flex: 0 0 auto;
+    }
+</style>

@@ -104,3 +104,29 @@ h4 {
 	padding-left: 2rem;
 	padding-right: 2rem;
 }
+
+
+.icon:hover {
+	color: white;
+}
+
+.dark .dark\:text-white .icon:hover, .dark #name:hover {
+	color: gold;
+}
+
+body, a:hover {
+	cursor: url('/assets/blackCursor.svg') 0 0, pointer;
+}
+
+.dark body, .dark a:hover {
+	cursor: url('/assets/whiteCursor.svg') 0 0, pointer;
+}
+
+#mobileMenu {
+	-webkit-overflow-scrolling: touch;
+}
+/*
+	&::-webkit-scrollbar {
+		display: none;
+	  }
+*/

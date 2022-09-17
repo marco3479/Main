@@ -2,6 +2,13 @@
 // Component Imports
 import MainHead from '../components/MainHead.astro';
 import Footer from '../components/Footer.astro';
+import Name from '../components/Name.astro';
+import ProjectsIcon from '../components/ProjectsIcon.astro';
+import ContactIcon from '../components/ContactIcon.astro';
+import SkillsIcon from '../components/SkillsIcon.astro';
+import InterestsIcon from '../components/InterestsIcon.astro';
+import ThemeMode from '../components/ThemeMode.astro';
+import MobileMenu from '../components/MobileMenu.astro';
 
 // Data Fetching: List all Markdown posts in the repo.
 const projects = await Astro.glob('./project/**/*.md');
@@ -13,8 +20,8 @@ const projects = await Astro.glob('./project/**/*.md');
 <html lang="en">
 	<head>
 		<MainHead
-			title="Jeanine White: Personal Site"
-			description="Jeanine White: Developer, Speaker, and Writer..."
+			title="Marco A. Mongalo III"
+			description="Marco A. Mongalo III | Knowledge and Software Engineer"
 		/>
 		<style>
 
@@ -114,14 +121,22 @@ const projects = await Astro.glob('./project/**/*.md');
 			.link:focus {
 				color: var(--t-active);
 			}
+
+
 		</style>
 	</head>
-	<body class="h-[100vh] w-[100vw] bg-green-900 text-white">
-		<header class=''>
-			<br/>
-			<h2 class="font-bold font-mono text-center">
-				Marco A. Mongalo III
-			</h2>
+	<body class="overflow-hidden grid grid-flow-row bg-amber-500 dark:bg-green-900 dark:text-white w-[100vw] h-[100vh]"
+	style={{
+		gridTemplateRows: '0.5fr 5fr'
+	}}
+	>
+	<header class='mt-4 grid z-10'>
+		<MobileMenu/>
+		<ContactIcon  className='hidden md:block absolute left-6'/>
+		<div class="w-full grid justify-center">
+			<Name/>
+		</div>
+		<ThemeMode className='hidden md:block right-6 absolute'/>
 			<!--div>
 				<div class="roles">
 					<span class="role">👩‍💻 Knowledge Engineer <span class="invert">👩‍💻 Knowledge Engineer</span></span>
@@ -132,10 +147,30 @@ const projects = await Astro.glob('./project/**/*.md');
 				<p class="desc">Testing</p>
 			</div-->
 		</header>
-		<main class="mt-8 mb-8">
-			<h4>Knowledge Engineering</h4>
-			<h4>Perignosia</h4>
+		<main class='h-[100vh] w-[100vw] absolute'>
+			<div class="absolute h-full w-full grid justify-center content-center">
+				<div id='home' class='section '>
+					<div>Picture of me</div>
+					<div>12/22/1995</div>
+					<div>?</div>
+				</div>
+				<div id='projects' class='section hidden'>
+					TESTING PROJECTS
+				</div>
+				<div id='skills' class='section hidden'>
+					TESTING SKILLS
+				</div>
+				<div id='interests' class='section hidden'>
+					TESTING INTEREST
+				</div>
+				<div id='contact' class='section hidden'>
+					TESTING CONTACT
+				</div>
+				<InterestsIcon className=" items-center h-full hidden md:flex left-6 absolute"/>
+				<ProjectsIcon className={"z-10 hidden md:grid justify-center w-full bottom-6 absolute"}/>
+				<SkillsIcon className=" hidden md:flex items-center h-full right-6 absolute"/>
+				<Footer />
+			</div>
 		</main>
-		<Footer />
 	</body>
 </html>
