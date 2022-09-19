@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout className={'flex flex-col w-full'}>
+    <h2 class='text-center'>Contact Me</h2>
+    <br/>
+    <br/>
+    <form class='flex flex-col gap-3 w-[90%] relative self-center max-w-2xl text-black'>
+        <input placeholder="First Name" type='text' required/>
+        <input placeholder="Last Name" type='text' required/>
+        <input placeholder="Email" type='email' required/>
+        <input placeholder="Company or Organization" type='text' required/>
+        <textarea class='min-h-[10rem]' placeholder="Tell me something" minlength="10" required/>
+        <br/>
+        <input class='rounded-sm dark:text-white text-black border-[3px] clickable' type='submit'/>
+    </form>
+</Layout> 
+<style>
+    input, textarea {
+        padding: 8px;
+        min-width: 80%;
+        border-radius: 0.125rem;
+    }
+</style>

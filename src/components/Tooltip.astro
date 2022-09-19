@@ -1,0 +1,42 @@
+---
+type positionType = 'right' | 'left' | 'top' | 'bottom';
+type displayType = 'sm' | 'md' | 'lg' | 'xl'
+
+export interface Props {
+    className?: string;
+    position: positionType;
+    display?: displayType;
+}
+
+const { 
+    className = '',
+    position,
+    display,
+ } = Astro.props;
+---
+
+<span class={`${className} absolute tooltip text-center w-max bg-opacity-80 bg-black text-lg invisible rounded-md p-1  z-[1] ${display ? display + ':' : ''}grid
+    ${/*position === 'right'
+    ? 'translate-x-[115%] translate-y-[110%]'
+    : position === 'left'
+    ? '-translate-x-[115%] -translate-y-[110%]'*/
+    position === 'top'
+    ? '-translate-y-[250%] -translate-x-2'
+    : position === 'bottom'
+    ? 'translate-y-2'
+    : ''}
+`}>
+    <div class={` w-0 h-0 border-4 border-b-black border-transparent border-opacity-80 border-solid  absolute justify-self-center
+    ${/*position === 'right'
+    ? 'border-r-8 border-l-0 border-r-black left-0 -translate-x-2 -translate-y-[0.85rem]'
+    : position === 'left'
+    ? 'border-l-8 border-r-0 border-l-black right-0 translate-x-2 translate-y-[0.85rem]'*/
+    position === 'top'
+    ? 'border-b-8 border-t-0 translate-y-8 translate-x-8 -scale-y-[1]'
+    : position === 'bottom'
+    ? 'border-b-8 border-t-0 -translate-y-2'
+    : ''}
+    `}></div>
+    <slot/>
+</span>
+

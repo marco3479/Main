@@ -69,9 +69,6 @@ img {
 	height: auto;
 }
 
-a {
-	color: var(--t-active);
-}
 
 h1 {
 	font-size: var(--f-u8);
@@ -105,18 +102,33 @@ h4 {
 	padding-right: 2rem;
 }
 
-
-.icon:hover {
+.dark .icon, .dark div.icon {
 	color: white;
+	transition: color .3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dark .dark\:text-white .icon:hover, .dark #name:hover {
+.icon, .icon div {
+	color: black;
+	transition: color .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.dark .dark\:text-white .icon:hover, .dark .icon:hover div, .dark #name:hover, .icon:hover, .icon:hover div  {
 	color: gold;
 }
 
-body, a:hover {
+body, a:hover, input:hover, textarea:hover {
 	cursor: url('/assets/blackCursor.svg') 0 0, pointer;
 }
+
+input:not(.clickable), textarea {
+	border: solid 3px transparent;
+}
+
+input:focus:not(.clickable), textarea:focus {
+	border-color: black;
+}
+
 
 .dark body, .dark a:hover {
 	cursor: url('/assets/whiteCursor.svg') 0 0, pointer;
@@ -130,3 +142,58 @@ body, a:hover {
 		display: none;
 	  }
 */
+
+
+
+.icon:hover .tooltip, a.icon:hover .tooltip {
+	visibility: visible;
+}
+
+.clickable {
+	background-size: 100% 200%;
+	background-position: 100% 100%;
+	background-image: linear-gradient(to top, rgb(241 245 249) 0%, rgb(241 245 249) 50%, rgb(20 83 45) 50%, rgb(20 83 45) 100%);
+	transition: background-position .3s cubic-bezier(0.4, 0, 0.2, 1), color .3s linear, border-color .3s linear;
+}
+
+.dark .clickable {
+	background-image: linear-gradient(to top, rgb(20 83 45) 0%, rgb(20 83 45) 50%, rgb(241 245 249) 50%, rgb(241 245 249) 100%);
+}
+
+.clickable:hover {
+	color: white;
+	background-position: 0% 200%;
+	border-color: rgb(20 83 45);
+}
+
+.dark .clickable:hover {
+	color: black;
+	background-position: 0% 200%;
+	border-color: rgb(241 245 249);
+}
+
+
+
+/*
+SCROLLBAR
+*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

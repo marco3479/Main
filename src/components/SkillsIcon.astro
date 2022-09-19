@@ -1,24 +1,15 @@
 ---
+import Tooltip from './Tooltip.astro';
+
 export interface Props {
     className?: string;
 }
 
-const { className } = Astro.props;
+const { className = '' } = Astro.props;
 ---
-<script type='text/javascript' is:inline>
-    function openSkills() {
-        const skills = document.getElementById('skills');
-        const icons = document.getElementsByClassName('section');
-        for (let icon of icons) {
-            if (!icon.classList.contains('hidden')) {
-                icon.classList.add('hidden');
-            }
-        }
-        skills.classList.remove('hidden');
-    }
-</script>
-<div onclick='javascript:openSkills()' id='skillsIcon' class={`${className} text-5xl`}>
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="icon   ">
+
+<a href='/skills' id='skillsIcon' class={`${className} icon text-5xl`}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" >
         <rect width="256" height="256" fill="none"></rect>
         <line x1="128" y1="176" x2="128" y2="80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
         <path d="M88,144a40,40,0,1,1-40,40v-6.7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
@@ -28,4 +19,5 @@ const { className } = Astro.props;
         <path d="M88,84v8a28,28,0,0,1-28,28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
         <path d="M168,84v8a28,28,0,0,0,28,28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
     </svg>
-</div>
+    <Tooltip position={'bottom'}>Skills</Tooltip>
+</a>
