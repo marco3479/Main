@@ -112,8 +112,11 @@ h4 {
 	transition: color .3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.icon:hover, .icon:hover div {
+	color: darkorange;
+}
 
-.dark .dark\:text-white .icon:hover, .dark .icon:hover div, .dark #name:hover, .icon:hover, .icon:hover div  {
+.dark .dark\:text-white .icon:hover, .dark .icon:hover div, .dark #name:hover {
 	color: gold;
 }
 
@@ -162,13 +165,13 @@ input:focus:not(.clickable), textarea:focus {
 
 .clickable:hover {
 	color: white;
-	background-position: 0% 200%;
+	background-position: 0% 0%;
 	border-color: rgb(20 83 45);
 }
 
 .dark .clickable:hover {
 	color: black;
-	background-position: 0% 200%;
+	background-position: 0% 0%;
 	border-color: rgb(241 245 249);
 }
 

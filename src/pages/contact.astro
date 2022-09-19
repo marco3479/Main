@@ -7,20 +7,50 @@ import Layout from "../layouts/Layout.astro";
     <h2 class='text-center'>Contact Me</h2>
     <br/>
     <br/>
-    <form class='flex flex-col gap-3 w-[90%] relative self-center max-w-2xl text-black'>
-        <input placeholder="First Name" type='text' required/>
-        <input placeholder="Last Name" type='text' required/>
-        <input placeholder="Email" type='email' required/>
-        <input placeholder="Company or Organization" type='text' required/>
-        <textarea class='min-h-[10rem]' placeholder="Tell me something" minlength="10" required/>
+    <form name='contactForm' onsubmit="return false" id='contactForm' class='flex flex-col gap-3 w-[90%] relative self-center max-w-2xl text-black'>
+        <input name='firstName' placeholder="First Name" type='text' required/>
+        <input name='lastName' placeholder="Last Name" type='text' required/>
+        <input name='email' placeholder="Email" type='email' required/>
+        <input name='organization' placeholder="Company or Organization" type='text' required/>
+        <input name='subject' placeholder="Subject" type='text' required/>
+        <textarea name='body' class='min-h-[10rem]' placeholder="Tell me something" minlength="10" required/>
         <br/>
-        <input class='rounded-sm dark:text-white text-black border-[3px] clickable' type='submit'/>
+        <button onclick='javascript:onSubmit' class='rounded-sm dark:text-white text-black border-[3px] clickable'>Submit</button>
     </form>
+    <script type='text/javascript' is:inline>
+        function onSubmit(e) {
+            e.preventDefault();
+            console.log('testing')
+            const formArray = e.target.children;
+            const data = {
+                name: formArray[0].value + " " + formArray[1].value,
+                email: formArray[2].value,
+                organization: formArray[3].value,
+                subject: formArray[4].value,
+                body: formArray[5].value
+            }
+
+            console.debug(data);
+    
+            fetch("/sendmail", {
+                method: "POST",
+                body: JSON.stringify(data)
+            })
+            .then((response) => response.json())
+            .then((gResponse) => {
+                if (gResponse.success) {
+                    console.log('SUCCESS')
+                } else {
+                    console.log('FAILED')
+                }
+            })
+        }
+    </script>
+    <style>
+        input, textarea {
+            padding: 8px;
+            min-width: 80%;
+            border-radius: 0.125rem;
+        }
+    </style>
 </Layout> 
-<style>
-    input, textarea {
-        padding: 8px;
-        min-width: 80%;
-        border-radius: 0.125rem;
-    }
-</style>

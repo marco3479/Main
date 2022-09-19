@@ -1,7 +1,7 @@
 {
   "name": "@example/portfolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -13,11 +13,17 @@
   "dependencies": {
     "@astrojs/preact": "^1.1.0",
     "@astrojs/tailwind": "^2.0.0",
+    "@astrojs/vercel": "^2.0.0",
     "@nanostores/preact": "^0.3.0",
     "astro": "^1.2.4",
     "nanostores": "^0.7.0",
+    "nodemailer": "^6.7.8",
     "preact": "^10.11.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.1.8"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.18",
+    "@types/nodemailer": "^6.4.6"
   }
 }
