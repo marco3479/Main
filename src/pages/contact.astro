@@ -1,51 +1,57 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+export type contactData = {
+    name: string;
+    email: string;
+    organization: string;
+    subject: string;
+    body: string;
+}
 ---
 
 <Layout className={'flex flex-col w-full'}>
     <h2 class='text-center'>Contact Me</h2>
     <br/>
     <br/>
-    <form name='contactForm' onsubmit="return false" id='contactForm' class='flex flex-col gap-3 w-[90%] relative self-center max-w-2xl text-black'>
-        <input name='firstName' placeholder="First Name" type='text' required/>
-        <input name='lastName' placeholder="Last Name" type='text' required/>
+    <form name='contactForm' onsubmit="return onSubmit()" method='post' id='contactForm' class='flex flex-col gap-3 w-[90%] relative self-center max-w-2xl text-black'>
+        <input name='fullName' placeholder="Full Name" type='text' required/>
         <input name='email' placeholder="Email" type='email' required/>
         <input name='organization' placeholder="Company or Organization" type='text' required/>
         <input name='subject' placeholder="Subject" type='text' required/>
         <textarea name='body' class='min-h-[10rem]' placeholder="Tell me something" minlength="10" required/>
         <br/>
-        <button onclick='javascript:onSubmit' class='rounded-sm dark:text-white text-black border-[3px] clickable'>Submit</button>
+        <input type='submit' value='Submit' class='rounded-sm dark:text-white text-black border-[3px] clickable'/>
     </form>
     <script type='text/javascript' is:inline>
-        function onSubmit(e) {
-            e.preventDefault();
-            console.log('testing')
-            const formArray = e.target.children;
+        function onSubmit() {
+            const formArray = document.getElementById('contactForm').children;
+            console.log(formArray); 
             const data = {
-                name: formArray[0].value + " " + formArray[1].value,
-                email: formArray[2].value,
-                organization: formArray[3].value,
-                subject: formArray[4].value,
-                body: formArray[5].value
+                name: formArray[0].value,
+                email: formArray[1].value,
+                organization: formArray[2].value,
+                subject: formArray[3].value,
+                body: formArray[4].value
             }
-
-            console.debug(data);
-    
+            console.log(data);
             fetch("/sendmail", {
                 method: "POST",
                 body: JSON.stringify(data)
             })
             .then((response) => response.json())
             .then((gResponse) => {
-                if (gResponse.success) {
+                if (gResponse.accepted.length > 0) {
                     console.log('SUCCESS')
+                    //return Astro.redirect('/message-sent')
                 } else {
+                    console.log(gResponse)
                     console.log('FAILED')
                 }
             })
+            return false;
         }
-    </script>
+        </script>
     <style>
         input, textarea {
             padding: 8px;
