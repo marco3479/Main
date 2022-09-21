@@ -1,4 +1,9 @@
-<div class='hidden dark:block' id='darkModeIcon'>
+---
+import Tooltip from "./Tooltip.astro";
+
+---
+
+<div class='hidden dark:block icon font-semibold' id='darkModeIcon'>
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="icon" >
         <rect width="256" height="256" fill="none"></rect>
         <line x1="216" y1="112" x2="216" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
@@ -7,4 +12,5 @@
         <line x1="184" y1="40" x2="152" y2="40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
         <path d="M216.7,152.6A91.9,91.9,0,0,1,103.4,39.3h0A92,92,0,1,0,216.7,152.6Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
     </svg>
+    <Tooltip className={'-translate-x-[0.65rem]'} position={'bottom'}>Theme</Tooltip>
 </div>

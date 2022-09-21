@@ -1,9 +1,12 @@
 ---
+import GithubIcon from "../components/GithubIcon.astro";
+import LinkIcon from "../components/LinkIcon.astro";
 import Layout from "../layouts/Layout.astro";
 
 type projectsType = {
-    title: string,
+    title: string;
     image: string;
+    imageStyles: string;
     role: string;
     about: string;
     github: string;
@@ -11,15 +14,17 @@ type projectsType = {
 }[]
 
 const projects: projectsType = [{
-    title: 'Perignosia, Boston, USA – perignosia.net',
-    image: '',
-    role: 'Knowledge Engineering, Software Engineering',
+    title: 'perignosia.net',
+    image: 'assets/PerignosiaLogo2000.png',
+    imageStyles: 'object-contain',
+    role: 'Knowledge Engineering & Software Engineering',
     about: 'Helped develop a collaborative knowledge management platform. The platform entails a decentralized Web3 application that aims to solve issues of miscommunication, misinformation, absolutism of facts, and decentralization of evidence. The tech stack mainly included Fluree, a decentralized no-SQL data management solution, Next.js, Node.js, and Node.js-embedded Python. Followed an agile project management style.',
     github: '',
     website: ''
 }, {
-    title: 'Sintaxis Academy, Boston, USA – sintaxis.io',
-    image: '',
+    title: 'sintaxis.io',
+    image: 'assets/LogoMark.png',
+    imageStyles: 'object-cover',
     role: 'Full-Stack Web Developer',
     about: 'Single-handedly developed the web site/app that manages scheduling of classes at Sintaxis, an online programming academy. Used Next.js as full-stack framework. Developed API for external services, including web workers.',
     github: '',
@@ -28,25 +33,29 @@ const projects: projectsType = [{
 ---
 
 <Layout>
-    <div class="relative overflow-y-auto h-[70%] pr-3">
+    <div class="relative overflow-y-auto h-full pr-3">
         <h2 class='text-center'>Projects</h2>
         <br/>
         <br/>
+        <br/>
         {projects.map((project) => (
-            <div class='grid grid-flow-col' style={{gridTemplateColumns: '1fr 1fr max-content'}}>
-                <div>
-                    <img src={project.image}/>
-                    <h3>{project.title}</h3>
+            <div class='grid grid-flow-col md:grid-flow-row gap-4' style={{gridTemplateColumns: '1fr 1fr max-content', gridTemplateRows: '1fr 1fr max-content'}}>
+                <div class=''>
+                    <img class={`${project.imageStyles} h-60 w-full`} src={project.image}/>
+                    <br/>
+                    <h3 class='text-center'>{project.title}</h3>
                 </div>
-                <div class='flex flex-col'>
-                    <h3>{project.role}</h3>
+                <div class='flex flex-col justify-center items-center'>
+                    <h3 class='text-center'>{project.role}</h3>
+                    <br/>
                     <p>{project.about}</p>
                 </div>
-                <div class='grid grid-flow-row'>
-                    <a href={project.github}>github</a>
-                    <a href={project.website}>website</a>
+                <div class='grid grid-flow-col md:grid-flow-row justify-center items-center'>
+                    <a href={project.github}><GithubIcon/></a>
+                    <a href={project.website}><LinkIcon/></a>
                 </div>
             </div>
+            <br/>
             <br/>
             <br/>
         ))}

@@ -1,6 +1,7 @@
 ---
 import DarkModeIcon from "./DarkModeIcon.astro";
 import LightModeIcon from "./LightModeIcon.astro";
+import Tooltip from "./Tooltip.astro";
 
 export interface Props {
     className?: string;
@@ -20,7 +21,7 @@ const { className } = Astro.props;
         }
     }
 </script>
-<div class={`${className} text-5xl`} title='themeMode' onclick={`javascript:toggleTheme()`}>
+<div class={`${className} text-5xl`} title='Theme Mode' onclick={`javascript:toggleTheme()`}>
     <LightModeIcon/>
     <DarkModeIcon/>
 </div>

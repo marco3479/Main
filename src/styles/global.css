@@ -105,19 +105,23 @@ h4 {
 .dark .icon, .dark div.icon {
 	color: white;
 	transition: color .3s cubic-bezier(0.4, 0, 0.2, 1);
+	fill: white;
 }
 
 .icon, .icon div {
 	color: black;
+	fill: black;
 	transition: color .3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon:hover, .icon:hover div {
 	color: darkorange;
+	fill: darkorange;
 }
 
 .dark .dark\:text-white .icon:hover, .dark .icon:hover div, .dark #name:hover {
 	color: gold;
+	fill: gold;
 }
 
 body, a:hover, input:hover, textarea:hover {
@@ -145,6 +149,7 @@ input:focus:not(.clickable), textarea:focus {
 		display: none;
 	  }
 */
+
 
 
 
@@ -199,4 +204,30 @@ SCROLLBAR
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
+}
+
+
+
+
+/*
+TEXT ANCHORS
+*/
+
+.anchor {
+	text-decoration: black solid underline;
+
+}
+
+.anchor:hover {
+	color: darkorange;
+	text-decoration-color: darkorange;
+}
+
+.dark .anchor {
+	text-decoration-color: white;
+}
+
+.dark .anchor:hover {
+	text-decoration-color: gold;
+	color: gold;
 }

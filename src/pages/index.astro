@@ -4,10 +4,27 @@ import Layout from "../layouts/Layout.astro";
 
 ---
 <Layout>
-	<div class='text-center'>Picture of me</div>
-	<br/>
-	<div class='relative flex flex-wrap justify-center content-center gap-3 w-full'>
-		<Box>12/22/1995</Box>
-		<Box>Knowledge Engineer</Box>
+	<div class='flex flex-col gap-4 md:flex-row items-center h-full overflow-y-auto'>
+		<img alt='Picture of Marco' src='assets/MeImage.JPG' class='w-full md:w-1/2'/>
+		<div class='relative flex flex-wrap justify-center content-center gap-3 w-full'>
+			<!--div class='flex flex-col'>
+				<Box>12/22/1995</Box>
+				<div class='w-1 h-32 bg-black self-center'></div>
+			</div-->
+			<div class='text-center'>
+				Welcome to my space.
+				<br/>
+				<br/>
+				Look around to get a glimpse of my mind, projects, and skills.
+				<br/>
+				Feel free to 
+				<a href='/contact' class='anchor'>contact me</a>.
+				
+			</div>
+			<div class='flex-row flex gap-1 items-center'>
+				<Box>Knowledge Engineer</Box>
+				<Box>Full-Stack Developer</Box>
+			</div>
+		</div>
 	</div>
 </Layout>
