@@ -124,8 +124,9 @@ h4 {
 	fill: gold;
 }
 
-body, a:hover, input:hover, textarea:hover {
-	cursor: url('/assets/blackCursor.svg') 0 0, pointer;
+
+body, a:hover,  input:hover, textarea:hover {
+	cursor: url('/assets/blackCursor.svg') 0 0, pointer !important;
 }
 
 input:not(.clickable), textarea {
@@ -138,7 +139,7 @@ input:focus:not(.clickable), textarea:focus {
 
 
 .dark body, .dark a:hover {
-	cursor: url('/assets/whiteCursor.svg') 0 0, pointer;
+	cursor: url('/assets/whiteCursor.svg') 0 0, pointer !important;
 }
 
 #mobileMenu {
@@ -213,21 +214,14 @@ SCROLLBAR
 TEXT ANCHORS
 */
 
-.anchor {
-	text-decoration: black solid underline;
 
-}
 
 .anchor:hover {
 	color: darkorange;
-	text-decoration-color: darkorange;
 }
 
-.dark .anchor {
-	text-decoration-color: white;
-}
+
 
 .dark .anchor:hover {
-	text-decoration-color: gold;
 	color: gold;
 }

@@ -4,24 +4,33 @@ import Layout from "../layouts/Layout.astro";
 
 ---
 <Layout>
-	<div class='flex flex-col gap-4 md:flex-row items-center h-full overflow-y-auto'>
-		<img alt='Picture of Marco' src='assets/MeImage.JPG' class='w-full md:w-1/2'/>
-		<div class='relative flex flex-wrap justify-center content-center gap-3 w-full'>
+	<div class='grid relative h-full grid-flow-row gap-4 grid-rows-[max-content_max-content]'>
+		<img alt='Picture of Marco' src='assets/MeImage.JPG' class='shadow-xl self-start md:self-center dark:shadow-black shadow-stone-500 md:absolute place-self-center w-4/5 '/>
+		<div class='md:absolute h-full flex flex-col sm:flex-row md:flex-col gap-4  w-4/5 place-self-center self-center'>
 			<!--div class='flex flex-col'>
 				<Box>12/22/1995</Box>
 				<div class='w-1 h-32 bg-black self-center'></div>
 			</div-->
-			<div class='text-center'>
+			<div class='flex flex-wrap flex-col text-sm md:text-lg text-center xl:text-right bg-black bg-opacity-50 self-center xl:right-5 shadow-black drop-shadow-lg w-max md:absolute text-white rounded-sm p-4'>
 				Welcome to my space.
+				<br class='hidden md:flex'/>
+				<br class='flex md:hidden xl:flex'/>
+				Look around to 
+				<br class='flex md:hidden xl:flex'/>
+				get a glimpse of my mind. 
+				<br class='flex md:hidden xl:flex'/>
+				Explore my 
 				<br/>
-				<br/>
-				Look around to get a glimpse of my mind, projects, and skills.
-				<br/>
-				Feel free to 
-				<a href='/contact' class='anchor'>contact me</a>.
-				
+				<div class='xl:flex flex-col'>
+				<span><a class='anchor' href='projects'>projects 🚀</a>,</span>
+				<span><a class='anchor' href='skills'>skills 🧠</a>, and</span>
+				<span><a href='interests' class='anchor'>interests ❤️</a>.</span>
+				</div>
+				<br class='hidden xl:flex'/>
+				<span>Feel free to 
+				<a href='/contact' class='anchor'>contact me</a> ✉️.</span>
 			</div>
-			<div class='flex-row flex gap-1 items-center'>
+			<div class='flex-row xl:flex-col flex gap-1 self-center xl:right-5 md:bottom-0 md:absolute'>
 				<Box>Knowledge Engineer</Box>
 				<Box>Full-Stack Developer</Box>
 			</div>
