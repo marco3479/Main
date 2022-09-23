@@ -43,7 +43,7 @@ const skills: skillsType = [{
         items: ['Node.js', 'Express.js', 'Next,js', 'Astro', 'ASP.net', 'Flask']
     }, {
         area: 'Related',
-        items: ['API Design', 'SSR', 'Docker Container & Images Management', 'Cloud Infrastructure Management']
+        items: ['API Design', 'SSR', 'Docker Container', 'Cloud Infrastructure']
     }]
     }, {
     area: 'Logic Control',
@@ -58,7 +58,7 @@ const skills: skillsType = [{
         items: ['NLP', 'PEG', 'Regex patterns']
     }]
     }, {
-    area: 'User Interface/Experience Design',
+    area: 'User Interface & Experience Design',
     subAreas: [{
         area: 'Languages',
         items: ['HTML', 'CSS', 'JavaScript', 'TypeScript']
@@ -79,9 +79,12 @@ const skills: skillsType = [{
 ---
 
 
-<Layout>
-    <div class="relative  flex flex-col gap-3 overflow-y-auto h-full pr-3 px-10">
-        <span>This is a collection of some coding skills I am confident using. It is isn't a complete list.</span>
+<Layout className='overflow-y-auto'>
+    <div class="relative flex flex-col gap-3  h-full text-base md:text-lg px-10">
+        <h2 class='text-center'>SKILLS</h2>
+        <br/>
+        <span class=''>This is a collection of some coding skills I am confident using. It is isn't a complete list.</span>
+        <br/>
         {skills.map((skill) => {
             const subAreas = skill.subAreas.map((area) => {
                 const items = area.items.map((topic) => (

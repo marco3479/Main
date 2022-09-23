@@ -24,7 +24,7 @@ const { className = '' } = Astro.props;
 //console.log(cookie);
 
 const cookie: string|null = Astro.request.headers.get('cookie');
-
+Astro.response.headers.set('Content-Encoding', 'gzip');
 ---
 
 <html lang="en" class={!cookie!.includes('dark') ? '' : 'dark'}>
@@ -140,14 +140,14 @@ const cookie: string|null = Astro.request.headers.get('cookie');
 		gridTemplateRows: '0.5fr 5fr'
 	}}
 	>
-	<header class='mt-4 grid z-10'>
+	<header class='pt-4 grid z-10 backdrop-blur-md'>
 		<MobileMenu/>
-		<div class="h-[3.5rem] md:h-0"></div>
-		<ContactIcon  className='hidden font-semibold md:block absolute left-6'/>
+		<div class="h-[3.5rem]  md:h-0"></div>
+		<ContactIcon  className='hidden pt-4 font-semibold md:block absolute left-6'/>
 		<div class="w-full grid justify-center">
 			<Name/>
 		</div>
-		<AstroThemeMode className='hidden md:block right-6 absolute'/>
+		<AstroThemeMode className='hidden pt-4 md:block right-6 absolute'/>
 			<!--div>
 				<div class="roles">
 					<span class="role">👩‍💻 Knowledge Engineer <span class="invert">👩‍💻 Knowledge Engineer</span></span>
@@ -161,7 +161,7 @@ const cookie: string|null = Astro.request.headers.get('cookie');
 		<main class='h-[100vh] w-[100vw] absolute'>
 			<div class="absolute h-full w-full flex justify-center  font-semibold text-lg">
 				<!--div id='interests' class='section hidden w-[70%] text-center'-->
-                <div class={`${className} h-2/3 justify-self-center md:w-[80%] md:p-10 md:pt-32 pt-44`}>
+                <div class={`${className} h-3/5 sm:h-[75%] justify-self-center md:w-[80%] md:p-10 md:pt-32 pt-44`}>
                     <slot/>
                 </div>
 				<div class='absolute left-6 flex items-center h-full'>
