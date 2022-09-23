@@ -27,7 +27,7 @@ const cookie: string|null = Astro.request.headers.get('cookie');
 Astro.response.headers.set('Content-Encoding', 'gzip');
 ---
 
-<html lang="en" class={!cookie!.includes('dark') ? '' : 'dark'}>
+<html lang="en" class={!cookie?.includes('dark') ? '' : 'dark'}>
 	<head>
 		<MainHead
 			title="Marco A. Mongalo III"
