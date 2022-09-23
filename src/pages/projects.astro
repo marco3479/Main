@@ -5,9 +5,10 @@ import LinkIcon from "../components/LinkIcon.astro";
 import Layout from "../layouts/Layout.astro";
 
 type projectsType = {
-    title: string;
+    link: string;
     image: string;
     imageStyles: string;
+    title: string;
     role: string;
     about: string;
     github: string;
@@ -15,26 +16,37 @@ type projectsType = {
 }[]
 
 const projects: projectsType = [{
-    title: 'perignosia.net',
+    website: 'perignosia.net',
     image: 'assets/PerignosiaLogo2000.png',
     imageStyles: 'object-contain',
+    title: 'Collaborative Knowledge Management Network',
     role: 'Knowledge Engineering & Software Engineering',
     about: 'Helped develop a collaborative knowledge management platform. The platform entails a decentralized Web3 application that aims to solve issues of miscommunication, misinformation, absolutism of facts, and decentralization of evidence. The tech stack mainly included Fluree, a decentralized no-SQL data management solution, Next.js, Node.js, and Node.js-embedded Python. Followed an agile project management style.',
     github: '',
-    website: ''
+    link: 'https://perignosia.net'
 }, {
-    title: 'sintaxis.io',
+    website: 'sintaxis.io',
     image: 'assets/LogoMark.png',
     imageStyles: 'object-cover',
+    title: 'Virtual Coding Academy',
     role: 'Full-Stack Web Developer',
     about: 'Single-handedly developed the web site/app that manages scheduling of classes at Sintaxis, an online programming academy. Used Next.js as full-stack framework. Developed API for external services, including web workers.',
+    github: 'https://github.com/marco3479/Sintaxis',
+    link: 'https://sintaxis.io'
+}/*, {
+    website: 'mymoringas.com',
+    image: 'assets/MyMoringas.png',
+    imageStyles: 'object-contain',
+    title: 'Moringas E-Commerce',
+    role: 'Full-Stack Web Developer',
+    about: '',
     github: '',
-    website: ''
-}]
+    link: 'https://mymoringas.com'
+}*/]
 ---
 
 <Layout>
-    <div class="relative overflow-y-auto h-full pr-3">
+    <div class="relative overflow-y-auto h-full pr-3 px-10">
         <h2 class='text-center'>Projects</h2>
         <br/>
         <br/>
@@ -42,15 +54,17 @@ const projects: projectsType = [{
         {projects.map((project) => (
             <div class='grid grid-rows-[1fr_max-content] grid-flow-col md:grid-rows-1 md:grid-cols-[1fr_1.5fr] md:grid-flow-row gap-4'>
                 <div class='md:h-full'>
-                    <a href=''><img class={`${project.imageStyles}  h-60 w-full`} src={project.image}/></a>
+                    <a href={project.link}><img class={`${project.imageStyles}  h-60 w-full`} src={project.image}/></a>
                     <br/>
                     <span class='flex flex-row justify-around items-center '>
-                        <h3 class='text-center'><a class='anchor' href={project.website}>{project.title}</a></h3>
-                        <a href={project.github}><GithubIcon/></a>
+                        <h3 class='text-center'><a class='anchor' href={project.link}>{project.website}</a></h3>
+                        {project.github !== '' ? <a href={project.github}><GithubIcon/></a> : null}
                     </span>
                 </div>
-                <div class='flex flex-col mt-4 md:mt-0 justify-center items-center'>
-                    <h3 class='text-center'>{project.role}</h3>
+                <div class='flex flex-col mt-4 md:mt-0 justify-center items-center p-3'>
+                    <h3 class='text-center'>{project.title}</h3>
+                    <br/>
+                    <h4 class='text-center'>{project.role}</h4>
                     <br/>
                     <p>{project.about}</p>
                 </div>
@@ -59,13 +73,5 @@ const projects: projectsType = [{
             <br/>
             <br/>
         ))}
-
-        <br/>
-        <br/>
-        <br/>
-        MyMoringas.com
-        <br/>
-        <br/>
-        Knox & PKnox
     </div>
 </Layout>

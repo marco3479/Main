@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 
 export type contactData = {
     name: string;
@@ -8,6 +8,7 @@ export type contactData = {
     subject: string;
     body: string;
 }
+
 ---
 
 <Layout className={'flex flex-col w-full'}>
@@ -43,7 +44,7 @@ export type contactData = {
             .then((gResponse) => {
                 if (gResponse.accepted.length > 0) {
                     console.log('SUCCESS')
-                    //return Astro.redirect('/message-sent')
+                    return window.location.href = window.location.pathname + '/message-sent'
                 } else {
                     console.log(gResponse)
                     console.log('FAILED')

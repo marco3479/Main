@@ -8,7 +8,6 @@ import ContactIcon from '../components/ContactIcon.astro';
 import SkillsIcon from '../components/SkillsIcon.astro';
 import InterestsIcon from '../components/InterestsIcon.astro';
 import MobileMenu from '../components/MobileMenu.astro';
-import { isLight } from '../ThemeState';
 import AstroThemeMode from '../components/AstroThemeMode.astro';
 // Data Fetching: List all Markdown posts in the repo.
 //const projects = await Astro.glob('./project/**/*.md');
@@ -24,9 +23,11 @@ const { className = '' } = Astro.props;
 //const cookie = Astro.request.headers.get('cookie')
 //console.log(cookie);
 
+const cookie: string|null = Astro.request.headers.get('cookie');
+
 ---
 
-<html lang="en" class='dark'>
+<html lang="en" class={!cookie!.includes('dark') ? '' : 'dark'}>
 	<head>
 		<MainHead
 			title="Marco A. Mongalo III"
@@ -179,7 +180,7 @@ const { className = '' } = Astro.props;
 			import { readCookie } from '../utils/CookiesHelper';
 
 			if (typeof document !== 'undefined') {
-				const html = (document.getElementsByTagName('html') as HTMLCollectionOf<HTMLHtmlElement>)[0];
+				const html = (document.getElementsByTagName('html'))[0];
 				if (readCookie('theme') === 'light') {
 					html.classList.remove('dark');
 				} else {
