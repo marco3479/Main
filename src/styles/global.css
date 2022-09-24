@@ -58,7 +58,6 @@ body {
 	margin: 0;
 	color: var(--t-fg);
 	font-family: 'Inter', 'system-ui', sans-serif;
-	min-height: 100vh;
 }
 
 
