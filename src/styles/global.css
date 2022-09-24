@@ -59,12 +59,8 @@ body {
 	color: var(--t-fg);
 	font-family: 'Inter', 'system-ui', sans-serif;
 	min-height: 100vh;
-	min-height: -webkit-fill-available;
 }
 
-html {
-  height: -webkit-fill-available;
-}
 
 * {
 	box-sizing: content-box;
