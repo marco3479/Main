@@ -23,7 +23,7 @@ const projects: projectsType = [{
     role: 'Knowledge Engineering & Software Engineering',
     about: 'Helped develop a collaborative knowledge management platform. The platform entails a decentralized Web3 application that aims to solve issues of miscommunication, misinformation, absolutism of facts, and decentralization of evidence. The tech stack mainly included Fluree, a decentralized no-SQL data management solution, Next.js, Node.js, and Node.js-embedded Python. Followed an agile project management style.',
     github: '',
-    link: 'https://perignosia.net'
+    link: ''//'https://www.perignosia.net'
 }, {
     website: 'sintaxis.io',
     image: 'assets/LogoMark.png',
@@ -33,16 +33,25 @@ const projects: projectsType = [{
     about: 'Single-handedly developed the web site/app that manages scheduling of classes at Sintaxis, an online programming academy. Used Next.js as full-stack framework. Developed API for external services, including web workers.',
     github: 'https://github.com/marco3479/Sintaxis',
     link: 'https://sintaxis.io'
-}/*, {
+}, {
     website: 'mymoringas.com',
     image: 'assets/MyMoringas.png',
     imageStyles: 'object-contain',
     title: 'Moringas E-Commerce',
     role: 'Full-Stack Web Developer',
-    about: '',
+    about: 'Developed an e-commerce website that sells Moringa products. Used the Qwik framework, leveraging concepts like resumability for a swifter customer experience.',
     github: '',
-    link: 'https://mymoringas.com'
-}*/]
+    link: ''//'https://mymoringas.com'
+}, {
+    website: '',
+    image: '',
+    imageStyles: '',
+    title: 'Web Apps',
+    role: 'Freelance Web Developer',
+    about: 'Have performed professional services as an independent contractor for Web App projects. I bring a fresh look into existing infrastructure, challenging the accuracy of the data pipelines, and improving the quality of the experience overall.',
+    github: '',
+    link: ''
+}]
 ---
 
 <Layout className={'overflow-y-auto '}>
@@ -54,10 +63,10 @@ const projects: projectsType = [{
         {projects.map((project) => (
             <div class='grid grid-rows-[1fr_max-content] grid-flow-col md:grid-rows-1 md:grid-cols-[1fr_1.5fr] md:grid-flow-row gap-4'>
                 <div class='md:h-full'>
-                    <a href={project.link}><img class={`${project.imageStyles}  h-60 w-full`} src={project.image}/></a>
+                    {project.image !== "" ? <a href={project.link !== '' ? project.link : ''}><img class={`${project.imageStyles}  h-60 w-full`} src={project.image}/></a> : null}
                     <br/>
                     <span class='flex flex-row justify-around items-center '>
-                        <h3 class='text-center'><a class='anchor' href={project.link}>{project.website}</a></h3>
+                        {project.link !== '' ? <h3 class='text-center'><a class='anchor' href={project.link}>{project.website}</a></h3> : null}
                         {project.github !== '' ? <a href={project.github}><GithubIcon/></a> : null}
                     </span>
                 </div>
