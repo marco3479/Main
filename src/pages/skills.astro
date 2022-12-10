@@ -2,17 +2,18 @@
 import Box from "../components/Box.astro";
 import Layout from "../layouts/Layout.astro";
 
-type skillsType = {
-    area: string;
-    subAreas: Array<subSkillType>
-}[]
 
-type subSkillType = {
+type SubSkillType = {
     area: string;
     items: string[]
 }
 
-const skills: skillsType = [{
+type SkillsType = {
+    area: string;
+    subAreas: Array<SubSkillType>
+}[]
+
+const skills: SkillsType = [{
     area: 'Data Modelling',
     subAreas: [{
         area: 'Knowledge Representation Languages',
@@ -40,7 +41,7 @@ const skills: skillsType = [{
     area: 'Server & Network Management',
     subAreas: [{
         area: 'Frameworks',
-        items: ['Node.js', 'Express.js', 'Next,js', 'Astro', 'ASP.net', 'Flask']
+        items: ['Node.js', 'Express.js', 'Next.js', 'Astro', 'ASP.net', 'Flask']
     }, {
         area: 'Related',
         items: ['API Design', 'SSR', 'Docker Container', 'Cloud Infrastructure']
